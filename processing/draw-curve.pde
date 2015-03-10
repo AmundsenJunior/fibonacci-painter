@@ -1,5 +1,7 @@
 float radius = 100.0;
+
 //+ and - operators against radius on beginX, beginY, endX, endY, x, y
+//for both these global declarations and in the functions
 //change the quadrant through which the arc is drawn
 float beginX;
 float beginY;
@@ -11,6 +13,7 @@ float distX;
 float distY;
 float x = 0.0;
 float y = 0.0;
+
 //step can control the drawing rate, as related to frameRate
 //if step is too high, draw does not complete a full 90deg arc
 //best with step < 0.01
