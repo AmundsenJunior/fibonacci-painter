@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
 
-  <head>
+		<title>Fibonacci Painter</title>
 
-    <link src="css/style.css" type="text/css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
 
-    <script language="javascript" type="text/javascript" src="js/p5.min.js"></script>
-    <!-- uncomment lines below to include extra p5 libraries -->
-    <!--<script language="javascript" src="js/p5.dom.js"></script>-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
+		<![endif]-->
 
-    <!-- Load the sketch -->
-    <script language="javascript" type="text/javascript" src="processing/fibonacci-static.js"></script>
- 
-  </head>
+		<script src="js/p5.min.js" type="text/javascript"></script>
+		<script src="js/p5.dom.js" type="text/javascript"></script>
+		<script src="processing/fibonacci-static.js" type="text/javascript"></script>
+		<script src="processing/draw-curve.js" type="text/javascript"></script>
+		<script src="processing/spiral-looper.js" type="text/javascript"></script>
+		<script src="processing/fibonacci-square.js" type="text/javascript"></script>
+	</head>
 
-  <body>
-  
-  </body>
-
+	<body>
+		<a href="https://github.com/AmundsenJunior/fibonacci-painter">
+			<img style="position: absolute; top: 0; right: 0; border: 0;"
+			alt="Fork me on GitHub"
+			src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+		</a>
+		<div class="page-header">
+			<h1>Fibonacci Painter <small>Processing and JS painting app based around the Fibonacci
+				sequence</small></h1>
+		</div>
+		<div class="container">
+			<div class="canvas">
+				<h3>fibonacci-static</h3>
+				<small>Click and drag mouse to draw.</small>
+				<div id="fibonacci-static"></div>
+	    		</div>
+	    		<div class="canvas">
+	    			<h3>draw-curve</h3>
+				<small>Click to start curve. Click again to stop current curve and start new one.</small>	
+				<div id="draw-curve"></div>
+	    		</div>
+			<div class="canvas">
+                		<h3>spiral-looper</h3>
+				<small>Click and hold to draw spiral. Release mouse to stop.</small>
+                		<div id="spiral-looper"></div>
+			</div>
+			<div class="canvas">
+				<h3>fibonacci-square</h3>
+				<small>Click and hold to start drawing. Release mouse to stop.</small>
+				<div id="fibonacci-square"></div>
+			</div>
+		</div>
+	</body>
 </html>

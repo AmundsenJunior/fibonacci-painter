@@ -1,6 +1,7 @@
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  var canvas = createCanvas(500, 500);
+  canvas.parent('fibonacci-static');
   background(0);
 }
 
