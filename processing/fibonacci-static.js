@@ -1,29 +1,29 @@
-var fibStatSketch = function( fibStat ) {
+var fibonacciStaticSketch = function( fst ) {
 
-  fibStat.setup = function() {
-    fibStat.createCanvas(500, 500);
-    fibStat.background(0);
+  fst.setup = function() {
+    fst.createCanvas(500, 500);
+    fst.background(0);
   };
 
-  fibStat.draw = function() {
-    if (fibStat.mouseIsPressed) {
-      var x_pos = fibStat.mouseX;
-      var y_pos = fibStat.mouseY;
-      fibStat.fibonacci(x_pos, y_pos);
+  fst.draw = function() {
+    if (fst.mouseIsPressed) {
+      var x_pos = fst.mouseX;
+      var y_pos = fst.mouseY;
+      fst.fibonacci(x_pos, y_pos);
     }
   };    
   
-  fibStat.fibonacci = function(x, y) {
-    fibStat.stroke(255);
-    fibStat.noFill();
-    fibStat.arc(x, y, 10, 10, fibStat.PI, fibStat.TWO_PI);
-    fibStat.arc(x-5, y, 20, 20, 0, fibStat.HALF_PI);
-    fibStat.arc(x-5, y-5, 30, 30, fibStat.HALF_PI, fibStat.PI);
-    fibStat.arc(x+5, y-5, 50, 50, fibStat.PI, fibStat.PI+fibStat.HALF_PI);
-    fibStat.arc(x+5, y+10, 80, 80, fibStat.PI+fibStat.HALF_PI, fibStat.TWO_PI);
-    fibStat.arc(x-20, y+10, 130, 130, 0, fibStat.HALF_PI);
+  fst.fibonacci = function(x, y) {
+    fst.stroke(255);
+    fst.noFill();
+    fst.arc(x, y, 10, 10, fst.PI, fst.TWO_PI);
+    fst.arc(x-5, y, 20, 20, 0, fst.HALF_PI);
+    fst.arc(x-5, y-5, 30, 30, fst.HALF_PI, fst.PI);
+    fst.arc(x+5, y-5, 50, 50, fst.PI, fst.PI+fst.HALF_PI);
+    fst.arc(x+5, y+10, 80, 80, fst.PI+fst.HALF_PI, fst.TWO_PI);
+    fst.arc(x-20, y+10, 130, 130, 0, fst.HALF_PI);
   };
 };
 
-var fibonacciStatic = new p5(fibStatSketch, 'fibonacci-static');
+var fibonacciStatic = new p5(fibonacciStaticSketch, 'fibonacci-static');
 
