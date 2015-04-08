@@ -1,55 +1,56 @@
-float f0;
-float f1;
-int x;
-int y;
-float scale = 3;
-float f0Scaled;
-float f1Scaled;
+var fibonacciSquareSketch = function ( fsq ) {
 
-void setup() {
-  size(500, 500);
-  frameRate(10);
-  background(0);
-  noFill();
-  stroke(255);
-  smooth();
-  noLoop();
-}
+  var f0, f1, x, y, f0Scaled, f1Scaled;
+  var scale = 3;
 
-void draw() {
-  rect(x, y, f1Scaled, f1Scaled);
+  fsq.setup = function() {
+    fsq.createCanvas(500, 500);
+    fsq.frameRate(10);
+    fsq.background(0);
+    fsq.noFill();
+    fsq.stroke(255);
+    fsq.smooth();
+    fsq.noLoop();
+  };
+
+  fsq.draw = function() {
+    fsq.rect(x, y, f1Scaled, f1Scaled);
   
-  //iterate up the fibonacci sequence
-  float[] fibStep = fibIterator(f0Scaled, f1Scaled);
-  f0Scaled = fibStep[0];
-  f1Scaled = fibStep[1];
+    //iterate up the fibonacci sequence
+    var fibStep = fsq.fibIterator(f0Scaled, f1Scaled);
+    f0Scaled = fibStep[0];
+    f1Scaled = fibStep[1];
   
-  //scale the starting point of the next square
-  x = x + (2 * f0Scaled);
-  y = y + (2 * f0Scaled);
-}
+    //scale the starting point of the next square
+    x = x + (2 * f0Scaled);
+    y = y + (2 * f0Scaled);
+  };
 
-float[] fibIterator(float fI, float fJ) {
-  float[] fibs = new float[2];
+  fsq.fibIterator = function( fI, fJ ) {
+    fibs = [
+      fJ,
+      fI + fJ
+    ];
   
-  fibs[0] = fJ;
-  fibs[1] = fI + fJ;
-  
-  return fibs;
-}
+    return fibs;
+  };
 
-void mousePressed() {
-  x = mouseX;
-  y = mouseY;
+  fsq.mousePressed = function() {
+    x = fsq.mouseX;
+    y = fsq.mouseY;
 
-  f0 = 0;
-  f1 = 1;
-  f0Scaled = f0 * scale;
-  f1Scaled = f1 * scale;
+    f0 = 0;
+    f1 = 1;
+    f0Scaled = f0 * scale;
+    f1Scaled = f1 * scale;
 
-  loop();
-}
+    fsq.loop();
+  };  
 
-void mouseReleased() {
-  noLoop();
-}
+  fsq.mouseReleased = function() {
+    fsq.noLoop();
+  };
+
+};
+
+var fibonacciSquare = new p5(fibonacciSquareSketch, 'fibonacci-square');
