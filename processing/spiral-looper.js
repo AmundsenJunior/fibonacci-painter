@@ -1,42 +1,43 @@
-float radius;
-float theta0;
-float theta1;
-float x;
-float y;
+var spiralLooperSketch = function( sl ) {
 
-void setup() {
-  size(500, 500);
-  frameRate(10);
-  background(0);
-  noFill();
-  stroke(255);
-  smooth();
-  noLoop();
-}
+  var radius, theta0, theta1, x, y;
 
-void draw() {
-  //draws a 90deg arc around the initial mouse location
-  arc(x, y, radius, radius, theta0, theta1);
+  sl.setup = function() {
+    sl.createCanvas(500, 500);
+    sl.frameRate(10);
+    sl.background(0);
+    sl.noFill();
+    sl.stroke(255);
+    sl.smooth();
+    sl.noLoop();
+  };
 
-  //increments the radius and turns the angle by 90deg
-  radius += 10;
-  theta0 = theta1;
-  theta1 += HALF_PI;
-}
+  sl.draw = function() {
+    //draws a 90deg arc around the initial mouse location
+    sl.arc(x, y, radius, radius, theta0, theta1);
 
-void mousePressed() {
-  //captures mouse location to start loop
-  x = mouseX;
-  y = mouseY;
+    //increments the radius and turns the angle by 90deg
+    radius += 10;
+    theta0 = theta1;
+    theta1 += sl.HALF_PI;
+  };
 
-  //resets radius and thetas to starting values
-  radius = 10;
-  theta0 = 0;
-  theta1 = HALF_PI;
-  loop();
-}
+  sl.mousePressed = function() {
+    //captures mouse location to start loop
+    x = sl.mouseX;
+    y = sl.mouseY;
 
-void mouseReleased() {
-  noLoop();
-}
+    //resets radius and thetas to starting values
+    radius = 10;
+    theta0 = 0;
+    theta1 = sl.HALF_PI;
+    sl.loop();
+  };
 
+  sl.mouseReleased = function() {
+    sl.noLoop();
+  };
+
+};
+
+var spiralLooper = new p5(spiralLooperSketch, 'spiral-looper');
