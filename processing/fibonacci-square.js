@@ -1,10 +1,10 @@
 var fibonacciSquareSketch = function ( fsq ) {
 
-  var f0, f1, x, y, f0Scaled, f1Scaled;
+  var canvas, f0, f1, x, y, f0Scaled, f1Scaled;
   var scale = 3;
 
   fsq.setup = function() {
-    fsq.createCanvas(500, 500);
+    canvas = fsq.createCanvas(500, 500);
     fsq.frameRate(10);
     fsq.background(0);
     fsq.noFill();
@@ -14,6 +14,7 @@ var fibonacciSquareSketch = function ( fsq ) {
   };
 
   fsq.draw = function() {
+
     fsq.rect(x, y, f1Scaled, f1Scaled);
   
     //iterate up the fibonacci sequence
