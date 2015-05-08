@@ -3,16 +3,18 @@ var drawSpiralSketch = function( ds ) {
   var theta = 0.0;
   var radius = 0.0;
 
-  // set the spiral origin point
   var x;
   var y;
 
-  //best with step < 0.01
   var frameRate = 60;
   var arcRate = ds.HALF_PI / frameRate;
 
+  var canvas;
+
   ds.setup = function() {
-    ds.createCanvas(500, 500);
+    canvas = ds.createCanvas(500, 500);
+    canvas.id("draw-spiral");
+    
     ds.frameRate(frameRate);
     ds.background(0);
     ds.stroke(255);
@@ -21,17 +23,8 @@ var drawSpiralSketch = function( ds ) {
   };
 
   ds.draw = function() {
-    if (ds.mouseIsPressed) {
-      var mousePress = ds.mousePressed();
-      x = mousePress.x;
-      y = mousePress.y;
-      theta = mousePress.theta;
-      radius = mousePress.radius;
-      incTheta = mousePress.incTheta;
-      incRadius = mousePress.incRadius;
-    }
 
-    incRadius = radius + 1;
+    incRadius = radius + 1.618;
     incTheta = theta + arcRate;
 
     ds.arc(x, y, radius, incRadius, theta, incTheta);
@@ -43,10 +36,7 @@ var drawSpiralSketch = function( ds ) {
   ds.mousePressed = function() {
     x = ds.mouseX;
     y = ds.mouseY;
-    theta = 0.0;
-    radius = 0.0;
-    incTheta = 0.0;
-    incRadius = 0.0;
+    theta = radius = incTheta = incRadius = 0.0;
     return {
       x: x,
       y: y,
