@@ -1,13 +1,5 @@
 var drawSpiralSketch = function( ds ) {
 
-  var beginTheta;
-  var beginRadius;
-  var prevTheta;
-  var prevRadius;
-  var endTheta;
-  var endRadius;
-  var incTheta;
-  var incRadius;
   var theta = 0.0;
   var radius = 0.0;
 
@@ -15,8 +7,6 @@ var drawSpiralSketch = function( ds ) {
   var x;
   var y;
 
-  //step can control the drawing rate, as related to frameRate
-  //if step is too high, draw does not complete a full 90deg arc
   //best with step < 0.01
   var frameRate = 60;
   var arcRate = ds.HALF_PI / frameRate;
