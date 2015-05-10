@@ -14,6 +14,7 @@ var drawSpiralSketch = function( ds ) {
   ds.setup = function() {
     canvas = ds.createCanvas(500, 500);
     canvas.id("draw-spiral");
+    canvas.mousePressed(ds.newSpiral);
     
     ds.frameRate(frameRate);
     ds.background(0);
@@ -33,7 +34,7 @@ var drawSpiralSketch = function( ds ) {
     theta = incTheta;
   }; 
 
-  ds.mousePressed = function() {
+  ds.newSpiral = function() {
     x = ds.mouseX;
     y = ds.mouseY;
     theta = radius = incTheta = incRadius = 0.0;
