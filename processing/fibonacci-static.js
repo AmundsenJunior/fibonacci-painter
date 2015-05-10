@@ -1,16 +1,15 @@
 var fibonacciStaticSketch = function( fst ) {
+  
+  var canvas;
 
   fst.setup = function() {
-    fst.createCanvas(500, 500);
+    canvas = fst.createCanvas(500, 500);
+    canvas.id("fibonacci-static");
+    canvas.mouseMoved(fst.newFibonacci);
     fst.background(0);
   };
 
   fst.draw = function() {
-    if (fst.mouseIsPressed) {
-      var x_pos = fst.mouseX;
-      var y_pos = fst.mouseY;
-      fst.fibonacci(x_pos, y_pos);
-    }
   };    
   
   fst.fibonacci = function(x, y) {
@@ -23,6 +22,24 @@ var fibonacciStaticSketch = function( fst ) {
     fst.arc(x+5, y+10, 80, 80, fst.PI+fst.HALF_PI, fst.TWO_PI);
     fst.arc(x-20, y+10, 130, 130, 0, fst.HALF_PI);
   };
+
+  fst.mouseMoved = function() {
+    var x = fst.mouseX;
+    var y = fst.mouseY;
+    return {
+      x: x,
+      y: y
+    };
+  };
+
+  fst.newFibonacci = function() {
+    if (fst.mouseIsPressed) {
+      var pos = fst.mouseMoved();
+      var x = pos.x;
+      var y = pos.y;  
+      fst.fibonacci(x, y);
+    }
+  };  
 };
 
 var fibonacciStatic = new p5(fibonacciStaticSketch, 'fibonacci-static');
