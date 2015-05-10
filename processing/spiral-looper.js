@@ -1,9 +1,12 @@
 var spiralLooperSketch = function( sl ) {
 
-  var radius, theta0, theta1, x, y;
+  var canvas, radius, theta0, theta1, x, y;
 
   sl.setup = function() {
-    sl.createCanvas(500, 500);
+    canvas = sl.createCanvas(500, 500);
+    canvas.id("spiral-looper");
+    canvas.mousePressed(sl.newSpiral);
+
     sl.frameRate(10);
     sl.background(0);
     sl.noFill();
@@ -22,7 +25,7 @@ var spiralLooperSketch = function( sl ) {
     theta1 += sl.HALF_PI;
   };
 
-  sl.mousePressed = function() {
+  sl.newSpiral = function() {
     //captures mouse location to start loop
     x = sl.mouseX;
     y = sl.mouseY;
