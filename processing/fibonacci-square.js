@@ -5,6 +5,9 @@ var fibonacciSquareSketch = function ( fsq ) {
 
   fsq.setup = function() {
     canvas = fsq.createCanvas(500, 500);
+    canvas.id("fibonacci-square");
+    canvas.mousePressed(fsq.newSquares);
+
     fsq.frameRate(10);
     fsq.background(0);
     fsq.noFill();
@@ -36,7 +39,7 @@ var fibonacciSquareSketch = function ( fsq ) {
     return fibs;
   };
 
-  fsq.mousePressed = function() {
+  fsq.newSquares = function() {
     x = fsq.mouseX;
     y = fsq.mouseY;
 
