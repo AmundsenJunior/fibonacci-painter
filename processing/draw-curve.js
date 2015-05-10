@@ -1,20 +1,14 @@
 var drawCurveSketch = function( dc ) {
 
+  var canvas;
+
   var radius = 100.0;
 
   //+ and - operators against radius on beginX, beginY, endX, endY, x, y
   //for both these global declarations and in the functions
   //change the quadrant through which the arc is drawn
-  var beginX;
-  var beginY;
-  var prevX;
-  var prevY;
-  var endX;
-  var endY;
-  var distX;
-  var distY;
-  var x = 0.0;
-  var y = 0.0;
+  var beginX, beginY, prevX, prevY, endX, endY, distX, distY;
+  var x = y = 0.0;
 
   //step can control the drawing rate, as related to frameRate
   //if step is too high, draw does not complete a full 90deg arc
@@ -23,21 +17,16 @@ var drawCurveSketch = function( dc ) {
   var pct = 0.0;
 
   dc.setup = function() {
-    dc.createCanvas(500, 500);
+    canvas = dc.createCanvas(500, 500);
+    canvas.id("draw-curve");
+    canvas.mousePressed(dc.newCurve);
+
     dc.frameRate(60);
     dc.background(0);
     dc.smooth();
   };
 
   dc.draw = function() {
-    if (dc.mouseIsPressed) {
-      var mousePress = dc.mousePressed();
-      pct = mousePress.pct;
-      beginX = mousePress.beginX;
-      beginY = mousePress.beginY;
-      prevX = mousePress.prevX;
-      prevY = mousePress.prevY;
-    }
 
     pct += step;
     if (pct < 1.0) {
@@ -52,7 +41,7 @@ var drawCurveSketch = function( dc ) {
     prevY = y;
   }; 
 
-  dc.mousePressed = function() {
+  dc.newCurve = function() {
     pct = 0.0;
     beginX = dc.mouseX;
     beginY = dc.mouseY + radius;
