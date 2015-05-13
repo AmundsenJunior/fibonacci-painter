@@ -1,0 +1,22 @@
+{
+  "name": "fibonacci-painter",
+  "version": "0.0.0",
+  "description": "Processing and JavaScript painting application based on the Fibonacci sequence",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmundsenJunior/fibonacci-painter.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AmundsenJunior/fibonacci-painter/issues"
+  },
+  "dependencies": {
+    "dotenv": "~1.1.0",
+    "express": "~4.12.3"
+  }
+}
